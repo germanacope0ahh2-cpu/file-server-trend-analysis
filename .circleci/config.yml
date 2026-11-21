@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  two_steps:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - run:
+          name: first
+          command: echo "step one"
+      - run:
+          name: second
+          command: echo "step two"
+workflows:
+  main:
+    jobs:
+      - two_steps
